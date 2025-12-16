@@ -5,11 +5,17 @@ public class Main {
         if(num>0){
             return (num+mod)%mod;
         }
-        while(num<=0){
-            num+=mod;
+        else{
+            return(num%mod+mod);
         }
-        num+=mod;
-        return num%mod;
+    }
+    public static int modulo(int num,int mod){
+        if(num>0){
+            return (num+mod)%mod;
+        }
+        else{
+            return(num%mod+mod);
+        }
     }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

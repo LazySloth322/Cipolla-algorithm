@@ -10,11 +10,13 @@ public class Cipolla {
 
         if(Main.modulo(a,p)==0){
             legendre=0;
-        }else {
-            if (field.quadraticResidueCheck(a)) {
+        }else{
+            int qrResult = field.quadraticResidueCheck(a);
+            if (qrResult==1){
                 legendre = 1;
             }else{
-                legendre = -1;
+                if(qrResult==(p-1)) legendre = -1;
+                else return -2;
             }
         }
 
@@ -49,8 +51,10 @@ public class Cipolla {
             }
         }
         if(ans!=-1) {
-            System.out.println("\n-------------- ANSWER --------------");
-            System.out.println("X={" + ans + ", " + Main.modulo((p - ans), p) + "}; " + ans + "^2 ≡ " + n + " (mod " + p + ")");
+            System.out.println("\n==================== ANSWER =======================");
+            System.out.println("||   X={" + ans + ", " + Main.modulo((p - ans), p) + "}; " + ans + "^2 ≡ " +
+                    n + " (mod " + p + ")   ");
+            System.out.println("==================== ====== =======================");
         }else{
             System.out.println("\nNo answer. Too few attempts");
         }

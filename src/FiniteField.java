@@ -46,24 +46,13 @@ public class FiniteField {
         return intArray;
     }
 
-    public boolean quadraticResidueCheck(int num){
-        boolean isInArray=false;
+    public int quadraticResidueCheck(int num){
+        FastPow fastPow = new FastPow(this.p);
+        int result;
 
-        int[] tempArray = new int[this.p];
-        for(int i=0;i<this.field.length;i++){
-            tempArray[i] = (int) Main.modulo((int)Math.pow(this.field[i],2),this.p);
-        }
+        result = Main.modulo(fastPow.run(num,((this.p-1)/2)), this.p);
 
-        int[] squares = removeDuplicates(tempArray);
-
-        for(int i=0;i < squares.length;i++){
-            if(num==squares[i]){
-                isInArray=true;
-                break;
-            }
-        }
-
-        return isInArray;
+        return result;
     }
 }
 

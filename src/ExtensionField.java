@@ -42,11 +42,8 @@ public class ExtensionField {
     public ExtensionField pow(long exp){
         ExtensionField result = new ExtensionField(1,1,this.a,this.n,this.p);
         ExtensionField base = new ExtensionField(this.a,this.y,this.a,this.n,this.p);
-        long d= (long) (Math.pow(this.a,2)-n);
+        long d = (long) (Math.pow(this.a,2)-n);
         while(exp>0){
-//            System.out.println("result "+result.getX()+" "+result.getY()+" "+result.getA()+" "+result.getN()+" "+result.getP()+" "+d);
-//            System.out.println("base "+base.getX()+" "+base.getY()+" "+base.getA()+" "+base.getN()+" "+base.getP()+" "+d);
-//            System.out.println("EXP "+exp);
             if(exp%2==1){
                 result=result.multiplication(base.getX(),base.getY(),d);
             }
